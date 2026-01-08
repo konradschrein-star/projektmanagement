@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment variables and API keys
+config.js
+.env
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+temp/
