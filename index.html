@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPS Finalizer - A3 Summary Generator</title>
-    <meta name="description" content="AI-powered A3 Management Summary Generator for Unified Problem Solving (UPS) Framework">
+    <meta name="description"
+        content="AI-powered A3 Management Summary Generator for Unified Problem Solving (UPS) Framework">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
@@ -17,16 +20,19 @@
             <div class="header-content">
                 <h1 class="main-title">
                     <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     UPS Finalizer
                 </h1>
-                <p class="subtitle">A3 Summary Generator für Lean Management</p>
+                <p class="subtitle">A3 Summary Generator für UPS-Framework</p>
             </div>
             <button class="settings-btn" id="settingsBtn" aria-label="Einstellungen">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
             </button>
         </header>
@@ -49,7 +55,8 @@
                         </div>
                         <div class="form-group">
                             <label for="projectTitle">Projekttitel</label>
-                            <input type="text" id="projectTitle" placeholder="z.B. Reduzierung der Rüstzeit an Maschine X">
+                            <input type="text" id="projectTitle"
+                                placeholder="z.B. Reduzierung der Rüstzeit an Maschine X">
                         </div>
                         <div class="form-group">
                             <label for="teamName">Team / Gruppe</label>
@@ -57,7 +64,8 @@
                         </div>
                         <div class="form-group">
                             <label for="businessImpact">Business Impact (Quantitative Daten)</label>
-                            <textarea id="businessImpact" rows="3" placeholder="z.B. Verlust: 15.000€/Jahr durch Maschinenstillstand, 120 Stunden Produktionsausfall pro Monat"></textarea>
+                            <textarea id="businessImpact" rows="3"
+                                placeholder="z.B. Verlust: 15.000€/Jahr durch Maschinenstillstand, 120 Stunden Produktionsausfall pro Monat"></textarea>
                         </div>
                     </div>
 
@@ -69,7 +77,8 @@
                         </div>
                         <div class="form-group">
                             <label for="largeVagueProblem">Large Vague Problem</label>
-                            <textarea id="largeVagueProblem" rows="2" placeholder="Grobes Problem beschreiben"></textarea>
+                            <textarea id="largeVagueProblem" rows="2"
+                                placeholder="Grobes Problem beschreiben"></textarea>
                         </div>
                         <div class="form-group">
                             <label>6W-2H Analyse</label>
@@ -106,7 +115,8 @@
                         </div>
                         <div class="form-group">
                             <label for="problemStatement">Problem Statement (Zusammenfassung)</label>
-                            <textarea id="problemStatement" rows="3" placeholder="Prägnantes Problem Statement basierend auf 6W-2H"></textarea>
+                            <textarea id="problemStatement" rows="3"
+                                placeholder="Prägnantes Problem Statement basierend auf 6W-2H"></textarea>
                         </div>
                     </div>
 
@@ -176,7 +186,8 @@
                         </div>
                         <div class="form-group">
                             <label for="verification">Verifikation / Scientific Proof</label>
-                            <textarea id="verification" rows="2" placeholder="Wie wurde die Ursache nachgewiesen?"></textarea>
+                            <textarea id="verification" rows="2"
+                                placeholder="Wie wurde die Ursache nachgewiesen?"></textarea>
                         </div>
                     </div>
 
@@ -193,7 +204,8 @@
                             </div>
                             <button type="button" class="add-btn" id="addCountermeasure">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
                                 </svg>
                                 Maßnahme hinzufügen
                             </button>
@@ -228,7 +240,8 @@
                         </div>
                         <div class="form-group">
                             <label for="beforeAfter">Vorher/Nachher Vergleich</label>
-                            <textarea id="beforeAfter" rows="3" placeholder="Quantitative Daten zum Vergleich"></textarea>
+                            <textarea id="beforeAfter" rows="3"
+                                placeholder="Quantitative Daten zum Vergleich"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="standardization">Standardisierungsmethode</label>
@@ -261,7 +274,8 @@
                             </div>
                             <button type="button" class="add-btn" id="addReapplication">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 4v16m8-8H4" />
                                 </svg>
                                 Bereich hinzufügen
                             </button>
@@ -272,7 +286,8 @@
                     <div class="form-navigation">
                         <button type="button" class="nav-btn prev-btn" id="prevBtn" disabled>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
                             </svg>
                             Zurück
                         </button>
@@ -287,7 +302,8 @@
                         <button type="button" class="nav-btn next-btn" id="nextBtn">
                             Weiter
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
                             </svg>
                         </button>
                     </div>
@@ -296,7 +312,8 @@
                     <div class="generate-section">
                         <button type="button" class="generate-btn" id="generateBtn">
                             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                             A3 Summary generieren
                         </button>
@@ -311,22 +328,26 @@
                     <div class="output-actions">
                         <button class="action-btn" id="copyBtn" title="In Zwischenablage kopieren">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                             </svg>
                         </button>
                         <button class="action-btn" id="downloadBtn" title="Als Markdown herunterladen">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                             </svg>
                         </button>
                         <button class="action-btn" id="printBtn" title="Drucken">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
                             </svg>
                         </button>
                         <button class="action-btn" id="newBtn" title="Neues Projekt">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
                             </svg>
                         </button>
                     </div>
@@ -353,7 +374,8 @@
                 <h3>Einstellungen</h3>
                 <button class="close-btn" id="closeSettings">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -361,12 +383,14 @@
                 <div class="form-group">
                     <label for="apiKey">Gemini API Key</label>
                     <input type="password" id="apiKey" placeholder="Eigenen API Key eingeben (optional)">
-                    <small>Wenn leer, wird ein begrenzter Demo-Key verwendet. Ihr Key wird nur im Browser gespeichert.</small>
+                    <small>Wenn leer, wird ein begrenzter Demo-Key verwendet. Ihr Key wird nur im Browser
+                        gespeichert.</small>
                 </div>
                 <div class="form-group">
                     <button type="button" class="secondary-btn" id="clearDataBtn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                         Alle Daten löschen
                     </button>
@@ -379,4 +403,5 @@
     <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
