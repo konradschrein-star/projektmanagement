@@ -1,0 +1,227 @@
+/* styles-v3.css - THE SICKEST MODE */
+
+:root {
+    /* End Portal Elegant Color Scheme */
+    --bg-dark: #010602;
+    --glass-bg: rgba(15, 30, 35, 0.6);
+    --glass-border: rgba(81, 128, 107, 0.3);
+
+    /* Primary Colors - Green/Teal Mystical */
+    --primary-green: #51806b;
+    --primary-teal: #72bdc0;
+    --accent-teal: #5ba6b4;
+    --dark-green: #194132;
+
+    /* Text - White for elegance */
+    --text-main: #ffffff;
+    --text-muted: #b8ccc5;
+    --text-dim: #7a9288;
+}
+
+body {
+    margin: 0;
+    background-color: #010602;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* 3D Background Container - End Portal Exact Color */
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #010602;
+    /* Exact End Portal background */
+}
+
+/* Glassmorphism Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 35px rgba(81, 128, 107, 0.5);
+    /* Green Mystical Glow */
+    border-color: rgba(114, 189, 192, 0.6);
+}
+
+/* Typography & Neon Text */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-teal), var(--accent-teal), var(--primary-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+    text-shadow: 0 0 25px rgba(114, 189, 192, 0.6);
+}
+
+h2,
+h3 {
+    color: var(--text-main);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Inputs "The Sickest" Style */
+input,
+textarea,
+select {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 20px rgba(114, 189, 192, 0.4);
+    background: rgba(15, 30, 35, 0.9);
+}
+
+/* Buttons - Elegant End Portal Style */
+button {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-teal));
+    border: 1px solid rgba(114, 189, 192, 0.3);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(81, 128, 107, 0.2);
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(114, 189, 192, 0.6);
+    border-color: var(--primary-teal);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-section {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Upload Zone - Elegant End Portal */
+.upload-zone {
+    border: 2px dashed rgba(81, 128, 107, 0.4);
+    border-radius: 20px;
+    padding: 4rem;
+    text-align: center;
+    transition: all 0.3s;
+    background: rgba(81, 128, 107, 0.08);
+    cursor: pointer;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+    border-color: var(--primary-teal);
+    background: rgba(114, 189, 192, 0.15);
+    box-shadow: 0 0 40px rgba(81, 128, 107, 0.3) inset;
+    transform: scale(1.02);
+}
+
+/* Mode Selector Glow Buttons - Mystical Green */
+.glow-btn {
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-teal));
+    box-shadow: 0 0 20px rgba(81, 128, 107, 0.4);
+}
+
+.glow-btn:hover {
+    box-shadow: 0 0 40px rgba(114, 189, 192, 0.7);
+    transform: scale(1.1);
+}
+
+/* API Gate Modal - Elegant Mystical */
+#apiGateModal {
+    border: 2px solid rgba(114, 189, 192, 0.4);
+    box-shadow: 0 0 60px rgba(81, 128, 107, 0.5);
+}
+
+#apiGateModal h2 {
+    background: linear-gradient(to right, var(--primary-teal), var(--accent-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(114, 189, 192, 0.5);
+}
+
+/* Output Content Area */
+#outputContent {
+    animation: fadeIn 0.8s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .glass-card {
+        padding: 1.5rem;
+    }
+}

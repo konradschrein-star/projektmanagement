@@ -1,19 +1,49 @@
-# UPS Finalizer
+# UPS Finalizer V3 - Ultimate Edition 🚀
 
-**A3 Summary Generator für Unified Problem Solving (UPS) Framework**
+**AI-Driven Management Summary Engine with End Portal Visual Theme**
 
-Eine moderne Web-Anwendung zur automatischen Generierung von A3 Management Summaries nach Toyota Lean Management Standards mit KI-Unterstützung.
+Ein professionelles Tool zur Erstellung von A3-Summary-Dokumenten nach der UPS-Methodik (Understanding Problem-Solving), powered by Google Gemini AI und gestaltet mit einem atemberaubenden Minecraft End Portal inspirierten Design.
 
-## Features
+![Version](https://img.shields.io/badge/version-3.0-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![AI](https://img.shields.io/badge/AI-Gemini-orange)
+![Theme](https://img.shields.io/badge/theme-End%20Portal-teal)
 
-✨ **Strukturierte Dateneingabe** - Schritt-für-Schritt Erfassung aller UPS-Phasen:
-- Problem Investigation (6W-2H Analyse)
-- Root Cause Investigation (Ishikawa/5-Why)
-- Implement Actions (Countermeasures)
-- Sustain Results (Validation)
-- Reapplication (Standardisierung)
+---
 
-🤖 **KI-gestützte Generierung** - Nutzt Google Gemini API für:
+## ✨ Highlights V3
+
+### 🌌 End Portal Visual Theme
+- **8000 interaktive Partikel** mit WebGL-Shadern
+- **Grün/Teal Farbpalette** (mystisch & elegant)
+- **Quadratische Partikel** mit variierender Größe
+- **Parallax Maus-Tracking**
+- **60 FPS Performance**
+
+### 🎨 Elegant Mystical UI
+- **Dunkler Hintergrund** (#010602)
+- **Glassmorphism Design** mit grünen Neon-Borders
+- **Weißer Text** für maximale Lesbarkeit
+- **Glow-Effekte** bei Hover
+- **Professionelle Inputs** mit Focus-Animationen
+
+---
+
+## 🎯 Key Features
+
+### Phase 1: Core ✅
+- ✅ Multi-Step Wizard für UPS-Methodik
+- ✅ Lokale Datenpersistenz
+- ✅ Responsive Design
+
+### Phase 2: Advanced ✅
+- ✅ **API Key Validation Gate**
+- ✅ **PDF Upload** (Gap-Analyse Parsing via Gemini Vision)
+- ✅ **Excel Upload** (.xlsx Support via SheetJS)
+- ✅ **Interactive Chat** (AI-gestützte Output-Verfeinerung)
+- ✅ **JSON Save/Load** (Projektverwaltung)
+- ✅ **A3 PDF Export** (Pixel-Perfect)
+- ✅ **KI-gestützte Generierung** - Nutzt Google Gemini API für:
 - Automatische A3 Summary Erstellung
 - "Golden Thread" Validierung
 - Reapplication Matrix Generierung

@@ -726,8 +726,9 @@ Input-Daten:\n\n`;
     }
 }
 
-// Initialize
-let app;
+// Initialize - Make globally accessible for V3
 document.addEventListener('DOMContentLoaded', () => {
-    app = new UPSFinalizerV2();
+    const appInstance = new UPSFinalizerV2();
+    window.app = appInstance; // Global access for V3 HTML bindings
 });
+

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPS Finalizer V3 - Ultimate Edition</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v3.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+
+    <div class="container">
+        <header class="glass-card" style="text-align: center; margin-top: 2rem;">
+            <h1>UPS FINALIZER <span style="font-weight:300; opacity:0.8">3.0</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem;">AI-Driven Management Summary Engine</p>
+
+            <div class="mode-selector"
+                style="margin-top: 2rem; display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                <button id="btnManual" class="glow-btn">📝 Manuelle Eingabe</button>
+                <button id="btnUpload" class="glow-btn">🚀 Smart Import (PDF/Excel)</button>
+            </div>
+
+            <div style="margin-top: 1rem; display:flex; justify-content:center; gap:1rem; opacity:0.8; flex-wrap:wrap;">
+                <button onclick="app.saveProjectAsJSON()"
+                    style="background:transparent; border:1px solid white; padding:0.5rem 1rem; font-size:0.9rem;">💾
+                    Save JSON</button>
+                <button onclick="document.getElementById('jsonLoader').click()"
+                    style="background:transparent; border:1px solid white; padding:0.5rem 1rem; font-size:0.9rem;">📂
+                    Load JSON</button>
+                <input type="file" id="jsonLoader" accept=".json" style="display:none"
+                    onchange="app.loadProjectFromJSON(this.files[0])">
+            </div>
+        </header>
+
+        <!-- API Gate Modal -->
+        <div id="apiGateModal" class="glass-card"
+            style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index:1000; width:90%; max-width:500px; text-align:center;">
+            <h2>🔐 System Access</h2>
+            <p>Enter Gemini API Key to unlock neural engine.</p>
+            <div style="margin: 2rem 0;">
+                <input type="password" id="gateApiKey" placeholder="AIza..." style="margin-bottom: 1rem;">
+
+                <!-- Teacher Login Option -->
+                <div style="margin: 1.5rem 0; padding-top: 1.5rem; border-top: 1px solid rgba(148, 163, 184, 0.2);">
+                    <button type="button" id="teacherLoginBtn"
+                        style="background: linear-gradient(135deg, #f6ad55, #ed8936); width: 100%; margin-bottom: 0.5rem;">
+                        🎓 Lehrkraft-Zugang (Prof. Günther)
+                    </button>
+                    <p style="font-size: 0.8rem; color: #f56565;">⚠️ Nur für Prof. Günther - Studenten: Eigenen Key
+                        verwenden!</p>
+                </div>
+
+                <!-- Teacher Name Input (hidden) -->
+                <div id="teacherNameModal"
+                    style="display:none; margin-top: 1rem; padding: 1rem; background: rgba(246, 173, 85, 0.1); border-radius: 12px;">
+                    <input type="text" id="teacherNameInput" placeholder="Name eingeben (z.B. Swen Günther)"
+                        style="margin-bottom: 1rem;">
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button type="button" id="teacherCancelBtn"
+                            style="flex: 1; background: #64748b;">Abbrechen</button>
+                        <button type="button" id="teacherConfirmBtn"
+                            style="flex: 1; background: #f6ad55;">Bestätigen</button>
+                    </div>
+                    <div id="teacherFeedback" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+                </div>
+            </div>
+            <button id="validateAndEnter" style="width:100%;">🚀 Unlock System</button>
+            <div id="apiValidationFeedback" style="margin-top: 1rem; padding: 0.5rem; border-radius: 8px;"></div>
+        </div>
+
+        <main id="mainApp" style="display:none;">
+            <!-- Upload Section -->
+            <section id="uploadSection" class="glass-card step-section" style="display:none;">
+                <div class="upload-zone" id="uploadZone">
+                    <h2 style="margin-top:0;">📤 Drop Files Here</h2>
+                    <p>Supported: Gap-Analyse (.pdf, .xlsx)</p>
+                    <input type="file" id="pdfFileInput" accept=".pdf,.xlsx" hidden>
+                    <button id="selectPdfBtn" style="margin-top: 1rem;">Datei auswählen</button>
+                </div>
+            </section>
+
+            <!-- Form Section -->
+            <section id="formSection" class="glass-card step-section" style="display:none;">
+                <h3>📋 Project Header</h3>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom: 2rem;">
+                    <div>
+                        <label>Projekt Titel</label>
+                        <input type="text" id="projectTitle" placeholder="z.B. Optimierung Linie 3">
+                    </div>
+                    <div>
+                        <label>Business Impact</label>
+                        <input type="text" id="businessImpact" placeholder="z.B. 50k€ Savings p.a.">
+                    </div>
+                </div>
+
+                <h3>🎯 Problem Statement</h3>
+                <textarea id="problemStatement" rows="3" placeholder="Beschreiben Sie das Problem..."
+                    style="margin-bottom: 2rem;"></textarea>
+
+                <h3>🔍 Root Cause</h3>
+                <textarea id="rootCause" rows="3" placeholder="Grundursache..." style="margin-bottom: 2rem;"></textarea>
+
+                <h3>⚡ Countermeasures</h3>
+                <div id="countermeasuresList">
+                    <div style="margin-bottom: 1rem;">
+                        <input type="text" placeholder="Maßnahme 1" style="margin-bottom: 0.5rem;">
+                        <input type="text" placeholder="Verantwortlich">
+                    </div>
+                </div>
+                <button onclick="alert('Add countermeasure feature')"
+                    style="background: rgba(59, 130, 246, 0.3); font-size: 0.9rem; padding: 0.5rem 1rem;">+ Maßnahme
+                    hinzufügen</button>
+            </section>
+
+            <!-- Output & Generation -->
+            <div class="glass-card step-section">
+                <button id="generateBtn" style="width:100%; font-size:1.5rem;">⚡ Generate A3 Summary</button>
+
+                <div id="outputSection" style="display:none; margin-top: 2rem;">
+                    <h3>📊 Generated A3 Summary</h3>
+                    <div id="outputContent"
+                        style="background:white; color:black; padding:2rem; border-radius:12px; min-height:400px; margin: 1rem 0;">
+                        <!-- AI-generated content will appear here -->
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button id="downloadPdfBtn" style="flex: 1; background: #334155;">📄 Download PDF (A3)</button>
+                        <button id="chatToggleBtn" style="flex: 1; background: #059669;">💬 Mit KI bearbeiten</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chat Panel -->
+    <div id="chatPanel"
+        style="position: fixed; right: -400px; top: 0; width: 400px; height: 100vh; background: rgba(30, 41, 59, 0.95); backdrop-filter: blur(20px); border-left: 2px solid rgba(59, 130, 246, 0.3); z-index: 2000; transition: right 0.3s ease; display: flex; flex-direction: column;">
+        <div
+            style="padding: 1.5rem; border-bottom: 1px solid rgba(148, 163, 184, 0.2); display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0;">💬 KI Chat</h3>
+            <button id="chatCloseBtn"
+                style="background: transparent; border: 1px solid white; padding: 0.5rem; font-size: 1.2rem;">✕</button>
+        </div>
+        <div id="chatMessages" style="flex: 1; overflow-y: auto; padding: 1rem;"></div>
+        <div style="padding: 1rem; border-top: 1px solid rgba(148, 163, 184, 0.2);">
+            <textarea id="chatInput" placeholder="Nachricht eingeben..." rows="2"
+                style="margin-bottom: 0.5rem;"></textarea>
+            <button id="chatSendBtn" style="width: 100%;">Senden</button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9998; align-items:center; justify-content:center; flex-direction:column;">
+        <div
+            style="width: 50px; height: 50px; border: 4px solid rgba(59, 130, 246, 0.3); border-top: 4px solid #3b82f6; border-radius: 50%; animation: spin 1s linear infinite;">
+        </div>
+        <p id="loadingText" style="margin-top: 1rem; color: white;">Loading...</p>
+    </div>
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        #chatPanel.open {
+            right: 0;
+        }
+
+        .toast {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.success {
+            border-color: #10b981;
+        }
+
+        .toast.error {
+            border-color: #ef4444;
+        }
+
+        .toast.info {
+            border-color: #3b82f6;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .chat-message.user {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin-left: 2rem;
+        }
+
+        .chat-message.assistant {
+            background: rgba(148, 163, 184, 0.1);
+            margin-right: 2rem;
+        }
+    </style>
+
+    <script src="config.js"></script>
+    <script src="pdf-handler.js"></script>
+    <script src="file-handler.js"></script>
+    <script src="chat-interface.js"></script>
+    <script src="teacher-login-extension.js"></script>
+    <script src="app-v2.js"></script>
+    <script src="visual-effects.js"></script>
+
+    <script>
+        // V3 Integration - Ensure app is globally accessible
+        document.addEventListener('DOMContentLoaded', () => {
+            // App will be initialized by app-v2.js, but ensure it's on window
+            setTimeout(() => {
+                if (typeof app !== 'undefined' && !window.app) {
+                    window.app = app;
+                }
+
+                // Check if API key exists
+                const hasApiKey = localStorage.getItem('upsApiKey');
+                const apiModal = document.getElementById('apiGateModal');
+
+                if (!hasApiKey && apiModal) {
+                    // Show API gate if no key
+                    apiModal.style.display = 'block';
+                } else if (hasApiKey) {
+                    // Key exists, show main app
+                    document.getElementById('mainApp').style.display = 'block';
+                }
+
+                // Setup V3 bindings
+                setupV3Bindings();
+            }, 200);
+        });
+
+        function setupV3Bindings() {
+            // Mode selector buttons
+            const btnManual = document.getElementById('btnManual');
+            const btnUpload = document.getElementById('btnUpload');
+
+            if (btnManual) {
+                btnManual.onclick = () => {
+                    document.getElementById('uploadSection').style.display = 'none';
+                    document.getElementById('formSection').style.display = 'block';
+                };
+            }
+
+            if (btnUpload) {
+                btnUpload.onclick = () => {
+                    document.getElementById('uploadSection').style.display = 'block';
+                    document.getElementById('formSection').style.display = 'none';
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -12,11 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-v2.css">
+    <link rel="stylesheet" href="styles-epic.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 
 <body>
+    <!-- 3D Particle Background -->
+    <div id="particle-container"></div>
+
     <!-- API Key Gate Modal (Blocking) -->
     <div class="api-gate-modal" id="apiGateModal">
         <div class="api-gate-content">
@@ -545,6 +550,7 @@
     </div>
 
     <script src="config.js"></script>
+    <script src="particle-background.js"></script>
     <script src="pdf-handler.js"></script>
     <script src="file-handler.js"></script>
     <script src="chat-interface.js"></script>

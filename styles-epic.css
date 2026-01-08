@@ -1,0 +1,369 @@
+/* UPS Finalizer - Epic Visual Enhancements */
+/* Option C: 3D Particles + Glassmorphism + Neon Glow */
+
+/* ===== PARTICLE BACKGROUND CONTAINER ===== */
+#particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+#particle-container canvas {
+    display: block;
+}
+
+/* ===== ENHANCED API GATE MODAL ===== */
+.api-gate-modal {
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.api-gate-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(66, 153, 225, 0.3);
+    box-shadow:
+        0 0 60px rgba(66, 153, 225, 0.2),
+        0 0 100px rgba(168, 85, 247, 0.1),
+        inset 0 0 60px rgba(255, 255, 255, 0.02);
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 60px rgba(66, 153, 225, 0.2),
+            0 0 100px rgba(168, 85, 247, 0.1),
+            inset 0 0 60px rgba(255, 255, 255, 0.02);
+    }
+
+    50% {
+        box-shadow:
+            0 0 80px rgba(66, 153, 225, 0.4),
+            0 0 120px rgba(168, 85, 247, 0.2),
+            inset 0 0 80px rgba(255, 255, 255, 0.04);
+    }
+}
+
+/* ===== ANIMATED GRADIENT TEXT ===== */
+.api-gate-header h1 {
+    font-size: 48px;
+    background: linear-gradient(135deg,
+            #4299e1 0%,
+            #a855f7 50%,
+            #4299e1 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+    text-shadow: 0 0 40px rgba(66, 153, 225, 0.5);
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ===== LOGO ICON ANIMATION ===== */
+.logo-icon-large {
+    animation: float 3s ease-in-out infinite, rotate 20s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(66, 153, 225, 0.6));
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== ENHANCED FORM INPUTS ===== */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(66, 153, 225, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4299e1;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 0 30px rgba(66, 153, 225, 0.4),
+        inset 0 0 20px rgba(66, 153, 225, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Floating Label Effect */
+.form-group label {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    color: #cbd5e0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.7));
+    padding: 0 8px;
+}
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    top: -10px;
+    left: 12px;
+    font-size: 12px;
+    color: #4299e1;
+    text-shadow: 0 0 10px rgba(66, 153, 225, 0.5);
+}
+
+/* ===== EPIC BUTTONS ===== */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 0 30px rgba(66, 153, 225, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 0 50px rgba(66, 153, 225, 0.6),
+        0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* ===== TEACHER BUTTON EPIC STYLE ===== */
+.btn-teacher {
+    background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+    box-shadow:
+        0 0 30px rgba(246, 173, 85, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-teacher::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+.btn-teacher:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 0 50px rgba(246, 173, 85, 0.6),
+        0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== STUDENT WARNING ENHANCED ===== */
+.student-warning {
+    background: rgba(245, 101, 101, 0.05);
+    border: 2px solid rgba(245, 101, 101, 0.3);
+    backdrop-filter: blur(10px);
+    animation: warningPulse 2s ease-in-out infinite;
+}
+
+@keyframes warningPulse {
+
+    0%,
+    100% {
+        border-color: rgba(245, 101, 101, 0.3);
+        box-shadow: 0 0 20px rgba(245, 101, 101, 0.2);
+    }
+
+    50% {
+        border-color: rgba(245, 101, 101, 0.5);
+        box-shadow: 0 0 30px rgba(245, 101, 101, 0.4);
+    }
+}
+
+/* ===== TEACHER NAME MODAL ===== */
+.teacher-name-modal {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(246, 173, 85, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow:
+        0 0 40px rgba(246, 173, 85, 0.2),
+        inset 0 0 40px rgba(255, 255, 255, 0.02);
+}
+
+.teacher-name-modal input {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(246, 173, 85, 0.3);
+    transition: all 0.3s ease;
+}
+
+.teacher-name-modal input:focus {
+    border-color: #f6ad55;
+    box-shadow: 0 0 30px rgba(246, 173, 85, 0.4);
+}
+
+/* ===== TOAST NOTIFICATIONS ENHANCED ===== */
+.toast {
+    backdrop-filter: blur(20px);
+    border-width: 2px;
+    animation: toastSlideIn 0.3s ease, toastGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px currentColor;
+    }
+
+    50% {
+        box-shadow: 0 0 30px currentColor;
+    }
+}
+
+/* ===== PAGE LOAD ANIMATION ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.api-gate-content {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.api-gate-header {
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.api-gate-body {
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* ===== RESPONSIVE GLOWS ===== */
+@media (max-width: 768px) {
+    .api-gate-header h1 {
+        font-size: 36px;
+    }
+
+    .api-gate-content {
+        padding: 40px 20px;
+    }
+}
+
+/* ===== LOADING SPINNER ENHANCEMENT ===== */
+.spinner {
+    border: 4px solid rgba(66, 153, 225, 0.1);
+    border-top: 4px solid #4299e1;
+    box-shadow: 0 0 30px rgba(66, 153, 225, 0.5);
+}
+
+/* ===== SUBTLE BACKGROUND ANIMATIONS ===== */
+body {
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+            rgba(66, 153, 225, 0.03) 0%,
+            transparent 50%);
+    animation: rotate 30s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
